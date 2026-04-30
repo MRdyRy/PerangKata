@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jxth4gcv1ou7"]
+
+[ext_resource type="Script" uid="uid://cr4qfkofd7f6h" path="res://scripts/Zombie.gd" id="1_1vlb3"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=187311248]
+script = ExtResource("1_1vlb3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306685511]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1114205151]
+
+[node name="HitEffectPos" type="Marker2D" parent="." unique_id=2038573690]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1238835000]
+root_node = NodePath("../WordLabel")
+
+[node name="WordLabel" type="Label" parent="." unique_id=1812501640]
+offset_right = 40.0
+offset_bottom = 23.0

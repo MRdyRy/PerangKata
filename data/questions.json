@@ -1,0 +1,6 @@
+{
+  "easy": ["air", "ikan", "Aku", "cuci", "jam", "layar", "ayam", "bola", "duri"],
+  "medium": ["alamat", "beranda", "cendikiawan", "depresiasi", "kongkalikong", "sengkongkol", "gratifikasi", "personalia", "hiperbola", "personifikasi", "backend developer", "solution architect"],
+  "hard": ["segmentation fault", "sudo rm -rf /", "ps -eaf | grep kamu", "verschlimmbesserung", "Schattenparker"],
+  "special_boss": ["Psikofarmakologi", "sudo who am i", "Inkonstitusionalitas", "Pneumonoultramicroscopicsilicovolcanoconiosis"]
+}

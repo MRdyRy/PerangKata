@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cyue27fs0ly0j"]
+
+[ext_resource type="PackedScene" uid="uid://bp1cr0nac4xcd" path="res://scenes/hero.tscn" id="1_o5qli"]
+
+[node name="main" type="Node2D" unique_id=1491750446]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1831174911]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=594605286]
+
+[node name="hero" parent="." unique_id=160174294 instance=ExtResource("1_o5qli")]
