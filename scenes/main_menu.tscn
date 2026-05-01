@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://lowtbub1qsu"]
+
+[ext_resource type="Script" uid="uid://ckoc42oypodat" path="res://main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://7q0hh544y6yh" path="res://assets/Pangolin-Regular.ttf" id="1_l6cm7"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1727227940]
+script = ExtResource("1_ekxnf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=176352034]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0.15686275)
+
+[node name="Message" type="Label" parent="." unique_id=1027107147]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 10
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 100
+text = "PerangKata"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=909924220]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -30.0
+offset_right = 56.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(50, 0)
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=2049937404]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "Start Game"
+
+[node name="AboutButton" type="Button" parent="VBoxContainer" unique_id=218169878]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "About"
+
+[node name="about" type="RichTextLabel" parent="." unique_id=489959338]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -209.5
+offset_right = 270.0
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(260, 175)
+theme_override_fonts/normal_font = ExtResource("1_l6cm7")
+theme_override_fonts/bold_font = ExtResource("1_l6cm7")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "=== ABOUT ===
+this game create by 
+Rudy Ryanto
+All assets in this game use free assets."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=219596728]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -37.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Kembali
+"
+
+[connection signal="pressed" from="VBoxContainer/AboutButton" to="." method="show_about"]
+[connection signal="pressed" from="BackButton" to="." method="show_menu"]

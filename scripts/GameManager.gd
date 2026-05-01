@@ -1,39 +1,60 @@
 extends Node
 
 # Game Stats Variable
+var is_game_started : bool = false
 var current_target_word : String = ""
 var combo : int = 0
 var ink_droplets :int = 0
 var level :int = 1
-var max_combo_for_ultimate :int = 10 # will play ultimate if combo 10 times
 
 # Signal for communication scenes
-signal stats_updated
-signal ultimate_ready
-signal typo_occured
-signal game_over
+signal game_started 		# signal run and spawning enemy
+signal stats_updated		# update UI score, ink, and combo
+signal ultimate_ready	# indicator ultimate
+signal typo_occured		# trigger hurt animation
+signal game_over			# game over scene
 
 # Scaling Difficulty
-var game_speed :float = 200.0
-var base_speed :float = 200.0
-var speed_increment :float = 25.0
-var game_time :float = 0.0
+var game_speed :float = 0.0			# homescreen / gameover scene
+var base_speed :float = 200.0		# base speed game
+var speed_increment :float = 20.0	# increase speed
+var max_combo_for_ultimate :int = 10 # will play ultimate if combo 10 times
 
-func add_ink(amount) :
-	ink_droplets += amount
-	stats_updated.emit()
+# Timer logic
+var game_time :float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	game_time += delta
-	if int(game_time) % 15 == 0 and int(game_time) != 0:
-		_increase_difficulty()
+	if is_game_started :
+			game_time += delta
+#			increse difficulty every 15 sec
+			if int(game_time) % 15 == 0 and int(game_time) != 0:
+				_increase_difficulty()
+
+func start_game():
+#	clean all enemy left
+	get_tree().call_group("enemies", "queue_free")
+#	reset internal stats
+	_reset_internal_stats()
+#	start the game
+	is_game_started = true
+	game_speed = base_speed
+	game_started.emit()
+	print("Game started!")
+
+func _reset_internal_stats():
+	level = 1
+	ink_droplets = 0
+	combo = 0
+	game_time = 0.0
 
 func _increase_difficulty():
 	level += 1
 	game_speed = base_speed + (level * speed_increment)
 	stats_updated.emit()
 	print("Level up: ",level, " speed : ", game_speed)
+#	reset game time for resolve glitch redundan trigger in the same time
+	game_time += 1.0
 
 func add_combo():
 	combo += 1
@@ -45,6 +66,9 @@ func add_combo():
 		ultimate_ready.emit()
 	stats_updated.emit()
 	
+func add_ink(amount) :
+	ink_droplets += amount
+	stats_updated.emit()
 	
 func reset_combo():
 	combo = 0
@@ -61,6 +85,9 @@ func use_ultimate():
 	return false
 	
 func trigger_game_over():
+	if not is_game_started: 
+		return
+	is_game_started = false
 	print("Game over! Total Ink: ", ink_droplets)
 	game_speed = 0
 	game_over.emit()
