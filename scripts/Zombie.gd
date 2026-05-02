@@ -26,11 +26,7 @@ func _ready() -> void:
 	label.text = word.to_upper()
 	set_difficulty_setting()
 	animation.play(_get_walk_anim(difficulty))
-	hit_box.area_entered.connect(_on_hit_box_entered)
-	
-func _on_hit_box_entered(area : Area2D):
-	if area.is_in_group("player") or area.get_parent().is_in_group("player"):
-		GameManager.trigger_game_over()
+	hit_box.area_entered.connect(_on_hit_box_body_entered)
 	
 	
 ##word
@@ -129,3 +125,14 @@ func set_difficulty_setting():
 		WordManager.Difficulty.BOSS:
 			speed = 50
 			scale = Vector2(1.5, 1.5)
+			
+func _physics_process(delta: float) -> void:
+	velocity.x = -speed
+	move_and_slide()
+
+
+func _on_hit_box_body_entered(area: Node2D) -> void:
+	print("zombie enter player zone")
+	if area.is_in_group("player") or area.get_parent().is_in_group("player"):
+		print("on zombie scene : hitbox touch")
+		GameManager.trigger_game_over()

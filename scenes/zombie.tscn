@@ -174,7 +174,7 @@
 [ext_resource type="Texture2D" uid="uid://cvurne8pbicab" path="res://assets/Minotaur_01_Hurt_011.png" id="154_xm3pj"]
 [ext_resource type="FontFile" uid="uid://7q0hh544y6yh" path="res://assets/Pangolin-Regular.ttf" id="173_x1yol"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xfqy5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8xce"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -214,7 +214,7 @@ animations = [{
 "texture": ExtResource("13_rtm6o")
 }],
 "loop": false,
-"name": &"zombie_easy_attack",
+"name": &"easy_attack",
 "speed": 15.0
 }, {
 "frames": [{
@@ -264,7 +264,7 @@ animations = [{
 "texture": ExtResource("28_cjxnn")
 }],
 "loop": false,
-"name": &"zombie_easy_die",
+"name": &"easy_die",
 "speed": 15.0
 }, {
 "frames": [{
@@ -305,7 +305,7 @@ animations = [{
 "texture": ExtResource("40_a81b6")
 }],
 "loop": false,
-"name": &"zombie_easy_hurt",
+"name": &"easy_hurt",
 "speed": 15.0
 }, {
 "frames": [{
@@ -364,198 +364,7 @@ animations = [{
 "texture": ExtResource("46_lwkdo")
 }],
 "loop": true,
-"name": &"zombie_easy_walk",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("47_w0avg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_5fnwp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_a81b6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_xrkyr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_qx4fx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("52_bdup2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53_u0mkf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("54_h1u7w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55_xjlyo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("56_5rtnb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57_4c7bg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("58_2l7u0")
-}],
-"loop": false,
-"name": &"zombie_hard_attack",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("59_u4uov")
-}, {
-"duration": 1.0,
-"texture": ExtResource("60_r0ckd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("61_0uhgk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("62_76dmi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("63_oe38a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("64_pl2h8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("65_hkyft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("66_0ijxk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("67_55gwc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("68_jo3iq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("69_qh8hj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("70_6y3cw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("71_kuekb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("72_q8nta")
-}, {
-"duration": 1.0,
-"texture": ExtResource("73_xm3pj")
-}],
-"loop": false,
-"name": &"zombie_hard_die",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("86_xrkyr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("87_qx4fx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("88_bdup2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("89_u0mkf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("90_h1u7w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("91_xjlyo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("92_5rtnb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("93_4c7bg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("94_2l7u0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("95_u4uov")
-}, {
-"duration": 1.0,
-"texture": ExtResource("96_r0ckd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("97_0uhgk")
-}],
-"loop": false,
-"name": &"zombie_hard_hurt",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("74_v0f8r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("75_wygqk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("76_gr5k2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("77_18e60")
-}, {
-"duration": 1.0,
-"texture": ExtResource("78_4l46v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("79_bx2fw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("80_ym7lk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("81_k60p4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("82_tel1x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("83_viuag")
-}, {
-"duration": 1.0,
-"texture": ExtResource("84_0vahb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("85_v2knn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("86_0xtk5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("87_afaqx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("88_8vx8l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("89_jrgy0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("90_mvqxn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("91_46kcc")
-}],
-"loop": true,
-"name": &"zombie_hard_walk",
+"name": &"easy_walk",
 "speed": 15.0
 }, {
 "frames": [{
@@ -595,8 +404,8 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("103_c6xm1")
 }],
-"loop": true,
-"name": &"zombie_medium_attack",
+"loop": false,
+"name": &"hard_attack",
 "speed": 15.0
 }, {
 "frames": [{
@@ -646,7 +455,7 @@ animations = [{
 "texture": ExtResource("118_ejgml")
 }],
 "loop": false,
-"name": &"zombie_medium_die",
+"name": &"hard_die",
 "speed": 15.0
 }, {
 "frames": [{
@@ -687,7 +496,7 @@ animations = [{
 "texture": ExtResource("154_xm3pj")
 }],
 "loop": false,
-"name": &"zombie_medium_hurt",
+"name": &"hard_hurt",
 "speed": 15.0
 }, {
 "frames": [{
@@ -746,9 +555,204 @@ animations = [{
 "texture": ExtResource("136_mryve")
 }],
 "loop": true,
-"name": &"zombie_medium_walk",
+"name": &"hard_walk",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_w0avg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_5fnwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_a81b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_xrkyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_qx4fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_bdup2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_u0mkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_h1u7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_xjlyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_5rtnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_4c7bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_2l7u0")
+}],
+"loop": false,
+"name": &"medium_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("59_u4uov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_r0ckd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_0uhgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_76dmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_oe38a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_pl2h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_hkyft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_0ijxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_55gwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_jo3iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_qh8hj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_6y3cw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_kuekb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_q8nta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_xm3pj")
+}],
+"loop": false,
+"name": &"medium_die",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("86_xrkyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_qx4fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_bdup2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_u0mkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_h1u7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_xjlyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_5rtnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_4c7bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_2l7u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_u4uov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_r0ckd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_0uhgk")
+}],
+"loop": false,
+"name": &"medium_hurt",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_v0f8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_wygqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_gr5k2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_18e60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_4l46v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_bx2fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_ym7lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_k60p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_tel1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_viuag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_0vahb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_v2knn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_0xtk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_afaqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_8vx8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_jrgy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_mvqxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_46kcc")
+}],
+"loop": true,
+"name": &"medium_walk",
 "speed": 15.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1yol"]
+radius = 146.0
+height = 382.0
 
 [sub_resource type="Animation" id="Animation_r3fa0"]
 length = 0.001
@@ -762,7 +766,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_i668t"]
@@ -778,7 +782,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_easy_attack"]
+"values": [&"easy_attack"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -806,7 +810,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_easy_die"]
+"values": [&"easy_die"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -834,7 +838,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_easy_hurt"]
+"values": [&"easy_hurt"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -863,7 +867,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_easy_walk"]
+"values": [&"easy_walk"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -891,7 +895,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_hard_attack"]
+"values": [&"hard_attack"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -919,7 +923,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_hard_die"]
+"values": [&"hard_die"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -947,7 +951,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_hard_hurt"]
+"values": [&"hard_hurt"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -976,7 +980,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_hard_walk"]
+"values": [&"hard_walk"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1004,7 +1008,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_medium_attack"]
+"values": [&"medium_attack"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1032,7 +1036,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_medium_die"]
+"values": [&"medium_die"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1060,7 +1064,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_medium_hurt"]
+"values": [&"medium_hurt"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1088,7 +1092,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"zombie_medium_walk"]
+"values": [&"medium_walk"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1121,14 +1125,25 @@ _data = {
 }
 
 [node name="zombie" type="CharacterBody2D" unique_id=187311248]
+top_level = true
 script = ExtResource("1_1vlb3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306685511]
-position = Vector2(614, 306)
-sprite_frames = SubResource("SpriteFrames_xfqy5")
-animation = &"zombie_hard_hurt"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=617468990]
+position = Vector2(578, 360)
+sprite_frames = SubResource("SpriteFrames_g8xce")
+animation = &"easy_attack"
+frame = 1
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1114205151]
+[node name="HitBox" type="Area2D" parent="." unique_id=1967517475]
+position = Vector2(608, 339)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1114205151]
+visible = false
+light_mask = 2
+position = Vector2(-43, 30)
+shape = SubResource("CapsuleShape2D_x1yol")
 
 [node name="HitEffectPos" type="Marker2D" parent="." unique_id=2038573690]
 visible = false
@@ -1138,12 +1153,15 @@ root_node = NodePath("../WordLabel")
 libraries/ = SubResource("AnimationLibrary_ys1oj")
 
 [node name="WordLabel" type="Label" parent="." unique_id=1812501640]
-offset_left = 607.0
-offset_top = 53.0
-offset_right = 647.0
-offset_bottom = 95.0
+offset_left = 161.0
+offset_top = 54.0
+offset_right = 434.0
+offset_bottom = 93.0
+scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("173_x1yol")
 theme_override_font_sizes/font_size = 30
+text = "IKAN ASIN DICUEKIN"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HitBox" type="Area2D" parent="." unique_id=1967517475]
-position = Vector2(608, 339)
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

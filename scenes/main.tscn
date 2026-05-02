@@ -1,26 +1,71 @@
 [gd_scene format=3 uid="uid://cyue27fs0ly0j"]
 
+[ext_resource type="Texture2D" uid="uid://dw7n5o3f7r6lk" path="res://assets/1.png" id="1_85g3d"]
+[ext_resource type="Script" uid="uid://dmacm8bhyllxx" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://bp1cr0nac4xcd" path="res://scenes/hero.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://lowtbub1qsu" path="res://scenes/main_menu.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://jxth4gcv1ou7" path="res://scenes/zombie.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dxwxvm5463err" path="res://assets/2.png" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://dxxguvnwwrkpi" path="res://assets/3.png" id="3_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://beoocg6okhioo" path="res://assets/5.png" id="4_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cbiubm5uggr0t" path="res://scenes/spawn_timer.tscn" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://bg5mhpys7icwt" path="res://scripts/InputManager.gd" id="5_tbgi4"]
 
 [node name="main" type="Node2D" unique_id=1491750446]
 position = Vector2(640, 362)
+script = ExtResource("1_choun")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1831174911]
+[node name="BgAnimation" type="ParallaxBackground" parent="." unique_id=1831174911]
+process_mode = 3
+scale = Vector2(2.2, 2.2)
+transform = Transform2D(2.2, 0, 0, 2.2, 0, 0)
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BgAnimation" unique_id=499256355]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BgAnimation/ParallaxLayer" unique_id=1029607205]
+position = Vector2(290, 150)
+texture = ExtResource("1_85g3d")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BgAnimation" unique_id=1413421253]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BgAnimation/ParallaxLayer2" unique_id=1122638666]
+texture = ExtResource("2_choun")
+offset = Vector2(290, 150)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BgAnimation" unique_id=344386419]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BgAnimation/ParallaxLayer3" unique_id=1346294614]
+texture = ExtResource("3_ya4ey")
+offset = Vector2(290, 150)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BgAnimation" unique_id=1935794784]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BgAnimation/ParallaxLayer4" unique_id=244059112]
+texture = ExtResource("4_eb6dy")
+offset = Vector2(290, 150)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BgAnimation" unique_id=1480999957]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BgAnimation/ParallaxLayer5" unique_id=657014633]
+texture = ExtResource("4_eb6dy")
+offset = Vector2(290, 150)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=594605286]
 
-[node name="hero" parent="." unique_id=160174294 instance=ExtResource("1_o5qli")]
-
 [node name="MainMenu" parent="." unique_id=1727227940 instance=ExtResource("2_0wfyh")]
 
-[node name="zombie" parent="." unique_id=187311248 instance=ExtResource("3_sugp2")]
-position = Vector2(-264, -54)
-
 [node name="SpawnTimer" parent="." unique_id=129715896 instance=ExtResource("4_jyhfs")]
+top_level = true
+z_index = 77
 
-[node name="Node" type="Node" parent="." unique_id=2033562420]
-script = ExtResource("5_tbgi4")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606474430]
+
+[node name="hero" parent="." unique_id=160174294 instance=ExtResource("1_o5qli")]
+top_level = true
+z_index = 30
+position = Vector2(100, 580)

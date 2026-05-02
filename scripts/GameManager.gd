@@ -39,6 +39,7 @@ func start_game():
 #	start the game
 	is_game_started = true
 	game_speed = base_speed
+	print("game_speed : ", game_speed)
 	game_started.emit()
 	print("Game started!")
 
