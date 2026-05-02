@@ -13,7 +13,7 @@ PerangKata (Word War) is a fast-paced typing game built with the Godot Engine. D
 ## How to Play
 You can play the game directly in your browser.
 
-**[Play PerangKata Online](https://mrdyry.github.io/perangkata/)**
+**[Play PerangKata Online](https://mrdyry.github.io/PerangKata/)**
 
 ### Controls
 - **Alphabetical Keys (A-Z):** Type the words to attack enemies.
