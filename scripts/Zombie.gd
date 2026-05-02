@@ -16,7 +16,8 @@ var difficulty : WordManager.Difficulty
 @onready var animation = $AnimationPlayer
 @onready var hit_box : Area2D = $HitBox
 
-
+# variable _name = local
+# variable tanpa _ didepan = public
 func _ready() -> void:
 	add_to_group("enemies")
 	difficulty = WordManager.get_difficulty_enum(GameManager.level)
@@ -27,8 +28,10 @@ func _ready() -> void:
 	set_difficulty_setting()
 	animation.play(_get_walk_anim(difficulty))
 	hit_box.area_entered.connect(_on_hit_box_body_entered)
+	if "InputManager" in get_node("/root"):
+		get_node("/root/InputManager").refresh_all_zombies_visual()	
 	
-	
+
 ##word
 #func set_word(new_word : String, diff:WordManager.Difficulty):
 	#word = new_word
@@ -44,8 +47,8 @@ func _ready() -> void:
 func _update_visual_text():
 	var correct = word.substr(0, current_index)
 	var remaining = word.substr(current_index)
-	label.bbcode_enabled = true
-	label.text = "[color=green]%[/color]%" %[correct, remaining]
+	#label.bbcode_enabled = true
+	#label.text = "[color=green]%[/color]%s" %[correct, remaining]
 
 func _get_walk_anim(difficulty:WordManager.Difficulty)-> String :
 	match difficulty:
@@ -71,21 +74,30 @@ func _get_die_anim(difficulty:WordManager.Difficulty)-> String :
 		WordManager.Difficulty.BOSS: return "hard_die"
 		_: return ""
 		
-func _handle_input(char:String) -> void :
+func handle_input(char:String) -> void :
+	print("question : ", word)
+	print("on zombie scene :typing : ", char)
 	if is_dead:
 		return
-	if word[current_index] == char.to_upper():
+	var target_char = word[current_index].to_upper()
+	var input_char = char.to_upper()
+	if target_char == input_char:
+		print("correct char : ", char)
+		GameManager.hero_attack_triggered.emit()
 		current_index += 1
 		_update_visual_text()
 		
 		animation.play(_get_hurt_anim(difficulty))
 		animation.queue(_get_walk_anim(difficulty))
 	if current_index >= word.length():
+		print("completed")
 		on_word_complete()
 		
 func on_word_complete():
 	is_dead = true
+	InputManager.current_target_zombie = null
 	GameManager.add_combo()
+	print("score : ",GameManager.ink_droplets)
 	hit_box.set_deferred("monitoring",false)
 	animation.play(_get_die_anim(difficulty))
 	await animation.animation_finished

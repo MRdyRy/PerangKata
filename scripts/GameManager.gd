@@ -13,6 +13,8 @@ signal stats_updated		# update UI score, ink, and combo
 signal ultimate_ready	# indicator ultimate
 signal typo_occured		# trigger hurt animation
 signal game_over			# game over scene
+signal word_submited(typed_word: String)
+signal hero_attack_triggered
 
 # Scaling Difficulty
 var game_speed :float = 0.0			# homescreen / gameover scene
@@ -86,6 +88,7 @@ func use_ultimate():
 	return false
 	
 func trigger_game_over():
+	print("on game manager : game over trigger!")
 	if not is_game_started: 
 		return
 	is_game_started = false

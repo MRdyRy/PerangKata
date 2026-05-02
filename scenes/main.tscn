@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dxxguvnwwrkpi" path="res://assets/3.png" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://beoocg6okhioo" path="res://assets/5.png" id="4_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cbiubm5uggr0t" path="res://scenes/spawn_timer.tscn" id="4_jyhfs"]
+[ext_resource type="FontFile" uid="uid://7q0hh544y6yh" path="res://assets/Pangolin-Regular.ttf" id="9_85g3d"]
 
 [node name="main" type="Node2D" unique_id=1491750446]
 position = Vector2(640, 362)
@@ -69,3 +70,80 @@ z_index = 77
 top_level = true
 z_index = 30
 position = Vector2(100, 580)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798575919]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer" unique_id=125922147]
+top_level = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 69.0
+offset_right = 115.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.8115774, 3.3450872e-06, 5.7756904e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9843137)
+theme_override_colors/font_outline_color = Color(0.86898494, 0.8689849, 0.8689849, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 45
+text = "GAME OVER"
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1534222226]
+top_level = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_top = 252.0
+offset_right = 117.0
+offset_bottom = 310.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.8115774, 3.3450872e-06, 5.7756904e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9843137)
+theme_override_colors/font_outline_color = Color(0.86898494, 0.8689849, 0.8689849, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 45
+text = "score"
+horizontal_alignment = 1
+
+[node name="BackToHome" type="Button" parent="CanvasLayer" unique_id=2139689547]
+visible = false
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -12.0
+offset_right = -1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_85g3d")
+text = "Main Menu"
+
+[node name="SumScore" type="Label" parent="CanvasLayer" unique_id=1739496003]
+top_level = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 324.0
+offset_right = 116.0
+offset_bottom = 382.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.6427579, 0.33861625, 3.85046e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9843137)
+theme_override_colors/font_outline_color = Color(0.86898494, 0.8689849, 0.8689849, 1)
+theme_override_fonts/font = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 80
+text = "125"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/BackToHome" to="." method="_on_main_menu_button_pressed"]

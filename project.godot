@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://dey53pv3l48rl"
 WordManager="*uid://cd6dbul12m1np"
+InputManager="*uid://bg5mhpys7icwt"
 
 [display]
 

@@ -14,6 +14,7 @@ func _ready() -> void:
 	GameManager.game_started.connect(_on_game_start)
 	GameManager.typo_occured.connect(_on_typo_detected)
 	GameManager.game_over.connect(play_death)
+	GameManager.hero_attack_triggered.connect(_on_attack_triggered)
 	if GameManager.is_game_started:
 		print("game is started")
 		_on_game_start()
@@ -44,5 +45,14 @@ func _on_game_start():
 	else:
 		anim_player.play("run")
 	
+func _on_attack_triggered():
+	var choice = ["attack","ultimate"]
+	anim_player.play(choice.pick_random())
+	await anim_player.animation_finished
+	anim_player.play("run")
+func _on_ultimate_triggered():
+	anim_player.play("ultimate")
+	await anim_player.animation_finished
+	anim_player.play("run")
 #func _physics_process(delta: float) -> void:
 	#move_and_slide()
