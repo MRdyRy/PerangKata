@@ -9,12 +9,12 @@ var is_dead = false #status
 
 var difficulty : WordManager.Difficulty
 
-
 # reference
 @onready var label = $WordLabel
 @onready var sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
 @onready var hit_box : Area2D = $HitBox
+@onready var explode = $AnimatedSprite2D2
 
 # variable _name = local
 # variable tanpa _ didepan = public
@@ -28,6 +28,7 @@ func _ready() -> void:
 	set_difficulty_setting()
 	animation.play(_get_walk_anim(difficulty))
 	hit_box.area_entered.connect(_on_hit_box_body_entered)
+	explode.hide()
 	if "InputManager" in get_node("/root"):
 		get_node("/root/InputManager").refresh_all_zombies_visual()	
 	
@@ -87,10 +88,22 @@ func handle_input(char:String) -> void :
 		current_index += 1
 		_update_visual_text()
 		
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			var enemy_position = self.global_position
+			enemy_position.y += 500
+			GameManager.spawn_splash(player.global_position, enemy_position)
+		
 		animation.play(_get_hurt_anim(difficulty))
 		animation.queue(_get_walk_anim(difficulty))
 	if current_index >= word.length():
 		print("completed")
+		explode.show()
+		var enemy_explode = self.global_position
+		enemy_explode.y +=300
+		enemy_explode.x -=100
+		explode.position = self.global_position
+		explode.play("default")
 		on_word_complete()
 		
 func on_word_complete():

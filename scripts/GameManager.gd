@@ -25,6 +25,9 @@ var max_combo_for_ultimate :int = 10 # will play ultimate if combo 10 times
 # Timer logic
 var game_time :float = 0.0
 
+# Effect slash
+var slash_scene : PackedScene = preload("res://scenes/slash.tscn")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_game_started :
@@ -96,3 +99,13 @@ func trigger_game_over():
 	game_speed = 0
 	game_over.emit()
 #	game over menu
+
+func spawn_splash(from_pos:Vector2, to_pos:Vector2):
+	var slash = slash_scene.instantiate()
+	get_tree().root.add_child(slash)
+	slash.global_position = from_pos
+	slash.look_at(to_pos)
+	
+	var tween = slash.create_tween()
+	tween.tween_property(slash, "global_position", to_pos, 0.1)
+	tween.tween_callback(slash.queue_free)

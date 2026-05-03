@@ -173,6 +173,16 @@
 [ext_resource type="Texture2D" uid="uid://cr6r2toc1pl7p" path="res://assets/Minotaur_01_Hurt_010.png" id="153_q8nta"]
 [ext_resource type="Texture2D" uid="uid://cvurne8pbicab" path="res://assets/Minotaur_01_Hurt_011.png" id="154_xm3pj"]
 [ext_resource type="FontFile" uid="uid://7q0hh544y6yh" path="res://assets/Pangolin-Regular.ttf" id="173_x1yol"]
+[ext_resource type="Texture2D" uid="uid://bluv3fknkepfj" path="res://assets/Explosion1.png" id="174_a81b6"]
+[ext_resource type="Texture2D" uid="uid://jam3xgu6p0h4" path="res://assets/Explosion2.png" id="175_xrkyr"]
+[ext_resource type="Texture2D" uid="uid://ssprqbm0788i" path="res://assets/Explosion3.png" id="176_qx4fx"]
+[ext_resource type="Texture2D" uid="uid://bjds50vbbde1p" path="res://assets/Explosion4.png" id="177_bdup2"]
+[ext_resource type="Texture2D" uid="uid://xknogkexnbs4" path="res://assets/Explosion5.png" id="178_u0mkf"]
+[ext_resource type="Texture2D" uid="uid://jtobxty1cmgx" path="res://assets/Explosion6.png" id="179_h1u7w"]
+[ext_resource type="Texture2D" uid="uid://bfjothgnpoynm" path="res://assets/Explosion7.png" id="180_xjlyo"]
+[ext_resource type="Texture2D" uid="uid://dgqvsnb1v3i1i" path="res://assets/Explosion8.png" id="181_5rtnb"]
+[ext_resource type="Texture2D" uid="uid://d3m5pirxwwa5c" path="res://assets/Explosion9.png" id="182_4c7bg"]
+[ext_resource type="Texture2D" uid="uid://8iux3nbtgvrs" path="res://assets/Explosion10.png" id="183_2l7u0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g8xce"]
 animations = [{
@@ -1124,6 +1134,44 @@ _data = {
 &"medium_walk": SubResource("Animation_oinge")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4uov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("174_a81b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_xrkyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_qx4fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_bdup2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_u0mkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_h1u7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_xjlyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_5rtnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_4c7bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_2l7u0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="zombie" type="CharacterBody2D" unique_id=187311248]
 top_level = true
 script = ExtResource("1_1vlb3")
@@ -1170,5 +1218,9 @@ offset_left = 161.0
 offset_top = 54.0
 offset_right = 201.0
 offset_bottom = 94.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=531426540]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u4uov")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

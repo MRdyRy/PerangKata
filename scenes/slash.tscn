@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bhxtfo3ucqob4"]
+
+[ext_resource type="Texture2D" uid="uid://ba3q1y4x76f0k" path="res://assets/File1.png" id="1_pim1l"]
+[ext_resource type="Texture2D" uid="uid://bhmygpjo747rr" path="res://assets/File2.png" id="2_xjeia"]
+[ext_resource type="Texture2D" uid="uid://btjox6j8uen6r" path="res://assets/File3.png" id="3_0fel2"]
+[ext_resource type="Texture2D" uid="uid://cgj7yo0xicard" path="res://assets/File4.png" id="4_q08yp"]
+[ext_resource type="Texture2D" uid="uid://dcryxiutt2lo6" path="res://assets/File5.png" id="5_5t3io"]
+[ext_resource type="Texture2D" uid="uid://l5gvlft4rge8" path="res://assets/File6.png" id="6_vtgmb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vnyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pim1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xjeia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0fel2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q08yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5t3io")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vtgmb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_m58hs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_bfwnv"]
+resource_name = "slash"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qchh7"]
+_data = {
+&"RESET": SubResource("Animation_m58hs"),
+&"slash": SubResource("Animation_bfwnv")
+}
+
+[node name="Slash" type="Node2D" unique_id=1377015750]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=465039779]
+texture = ExtResource("1_pim1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=274938291]
+visible = false
+sprite_frames = SubResource("SpriteFrames_5vnyt")
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1909070912]
+libraries/ = SubResource("AnimationLibrary_qchh7")
