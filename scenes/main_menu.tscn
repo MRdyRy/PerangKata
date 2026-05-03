@@ -83,7 +83,7 @@ theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxLine_ekxnf")
 bbcode_enabled = true
 text = "[color=black]=== ABOUT ===
-this game create by 
+this game created by 
 Rudy Ryanto
 All assets in this game use free assets.[/color]"
 scroll_active = false

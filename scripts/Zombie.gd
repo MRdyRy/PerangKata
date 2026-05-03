@@ -10,11 +10,13 @@ var is_dead = false #status
 var difficulty : WordManager.Difficulty
 
 # reference
-@onready var label = $WordLabel
+@onready var label = $RichTextLabel
 @onready var sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
 @onready var hit_box : Area2D = $HitBox
 @onready var explode = $AnimatedSprite2D2
+@onready var dead_sound = $tech_death
+@onready var slash_sound = $explode_sound
 
 # variable _name = local
 # variable tanpa _ didepan = public
@@ -46,10 +48,11 @@ func _ready() -> void:
 	
 	
 func _update_visual_text():
-	var correct = word.substr(0, current_index)
-	var remaining = word.substr(current_index)
-	#label.bbcode_enabled = true
-	#label.text = "[color=green]%[/color]%s" %[correct, remaining]
+	var correct = word.substr(0, current_index).to_upper()
+	var remaining = word.substr(current_index).to_upper()
+	label.bbcode_enabled = true
+	var color_code = "#00ff00"
+	label.text = "[center][color=%s]%s[/color]%s[/center]" % [color_code, correct, remaining]
 
 func _get_walk_anim(difficulty:WordManager.Difficulty)-> String :
 	match difficulty:
@@ -94,6 +97,9 @@ func handle_input(char:String) -> void :
 			enemy_position.y += 500
 			GameManager.spawn_splash(player.global_position, enemy_position)
 		
+		if dead_sound.stream:
+			dead_sound.play()
+		
 		animation.play(_get_hurt_anim(difficulty))
 		animation.queue(_get_walk_anim(difficulty))
 	if current_index >= word.length():
@@ -114,6 +120,8 @@ func on_word_complete():
 	hit_box.set_deferred("monitoring",false)
 	animation.play(_get_die_anim(difficulty))
 	await animation.animation_finished
+	if slash_sound.stream:
+		slash_sound.play()
 	queue_free()
 
 #func on_correct_input():

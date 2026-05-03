@@ -183,6 +183,8 @@
 [ext_resource type="Texture2D" uid="uid://dgqvsnb1v3i1i" path="res://assets/Explosion8.png" id="181_5rtnb"]
 [ext_resource type="Texture2D" uid="uid://d3m5pirxwwa5c" path="res://assets/Explosion9.png" id="182_4c7bg"]
 [ext_resource type="Texture2D" uid="uid://8iux3nbtgvrs" path="res://assets/Explosion10.png" id="183_2l7u0"]
+[ext_resource type="AudioStream" uid="uid://bf810qi56b823" path="res://assets/Tech_death_1.wav" id="184_qx4fx"]
+[ext_resource type="AudioStream" uid="uid://baoucgrsmekjo" path="res://assets/Truck_gun_shot.wav" id="185_bdup2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g8xce"]
 animations = [{
@@ -1201,6 +1203,7 @@ root_node = NodePath("../WordLabel")
 libraries/ = SubResource("AnimationLibrary_ys1oj")
 
 [node name="WordLabel" type="Label" parent="." unique_id=1812501640]
+visible = false
 offset_left = 161.0
 offset_top = 54.0
 offset_right = 434.0
@@ -1213,14 +1216,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1362339261]
-visible = false
-offset_left = 161.0
-offset_top = 54.0
-offset_right = 201.0
-offset_bottom = 94.0
+offset_left = 328.0
+offset_top = 80.0
+offset_right = 833.0
+offset_bottom = 159.0
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "IKAN ASIN DICUEKIN
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=531426540]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u4uov")
+
+[node name="tech_death" type="AudioStreamPlayer2D" parent="." unique_id=1192458458]
+stream = ExtResource("184_qx4fx")
+
+[node name="explode_sound" type="AudioStreamPlayer2D" parent="." unique_id=1907019368]
+stream = ExtResource("185_bdup2")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
