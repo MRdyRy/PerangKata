@@ -27,6 +27,8 @@ var game_time :float = 0.0
 
 # Effect slash
 var slash_scene : PackedScene = preload("res://scenes/slash.tscn")
+var shake_strength = 0
+var shake_fade = 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -17,6 +17,7 @@ var difficulty : WordManager.Difficulty
 @onready var explode = $AnimatedSprite2D2
 @onready var dead_sound = $tech_death
 @onready var slash_sound = $explode_sound
+@onready var combo_hit = $combo_label
 
 # variable _name = local
 # variable tanpa _ didepan = public
@@ -102,6 +103,11 @@ func handle_input(char:String) -> void :
 		
 		animation.play(_get_hurt_anim(difficulty))
 		animation.queue(_get_walk_anim(difficulty))
+	else :
+#		reset
+		if GameManager.combo > 1 :
+			GameManager.combo = 0
+			GameManager.shake_strength = 0
 	if current_index >= word.length():
 		print("completed")
 		explode.show()
@@ -111,6 +117,7 @@ func handle_input(char:String) -> void :
 		explode.position = self.global_position
 		explode.play("default")
 		on_word_complete()
+		show_combo(GameManager.combo)
 		
 func on_word_complete():
 	is_dead = true
@@ -169,3 +176,22 @@ func _on_hit_box_body_entered(area: Node2D) -> void:
 	if area.is_in_group("player") or area.get_parent().is_in_group("player"):
 		print("on zombie scene : hitbox touch")
 		GameManager.trigger_game_over()
+
+func show_combo(combo):
+	if combo >1:
+		GameManager.shake_strength += combo
+		#combo_hit.text = "COMBO X %d" % combo
+		combo_hit.text = "%d x🔥" % combo
+		combo_hit.scale = Vector2(1.5, 1.5)
+		if GameManager.combo < 3:
+			combo_hit.modulate = Color(1,1,0)
+		else :
+			combo_hit.modulate = Color(1,0,0)
+		var max_scale = 1
+		if combo < 5 :
+			max_scale = combo
+		else :
+			max_scale = 8
+		var tween = create_tween()
+		tween.tween_property(combo_hit, "scale", Vector2(max_scale, max_scale),0.2)
+		tween.tween_property(combo_hit, "modulate", Color(1,1,1),0.2)

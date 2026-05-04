@@ -6,6 +6,8 @@ extends Node2D
 @onready var back_to_home_button = $CanvasLayer/BackToHome
 @onready var score_hud = $CanvasLayer/Score
 @onready var sum_score_hud = $CanvasLayer/SumScore
+@onready var cameramen = $Camera2D
+@onready var backsound = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +19,10 @@ func _ready() -> void:
 	GameManager.game_started.connect(_on_game_started)
 	GameManager.game_over.connect(_on_game_over)
 	GameManager.stats_updated.connect(_update_hud)
+	
+	if backsound.finished:
+		backsound.play()
+	
 			
 	for connection in GameManager.game_over.get_connections():
 		print("Koneksi Sinyal: ", connection)
@@ -52,3 +58,11 @@ func _process(delta: float) -> void:
 		for layer in $BgAnimation.get_children():
 			if layer is ParallaxLayer:
 				layer.motion_offset.x -= GameManager.game_speed * delta
+		
+	#	test
+	if GameManager.shake_strength > 0 && GameManager.combo > 0 :
+		GameManager.shake_strength = lerp(float(GameManager.shake_strength), float(0), float(GameManager.shake_fade) * delta)
+		cameramen.offset = Vector2(
+			randf_range(-GameManager.shake_strength, GameManager.shake_strength),
+			randf_range(-GameManager.shake_strength, GameManager.shake_strength))
+		
