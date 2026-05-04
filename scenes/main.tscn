@@ -60,6 +60,7 @@ offset = Vector2(290, 150)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=594605286]
 
 [node name="MainMenu" parent="." unique_id=1727227940 instance=ExtResource("2_0wfyh")]
+visible = false
 
 [node name="SpawnTimer" parent="." unique_id=129715896 instance=ExtResource("4_jyhfs")]
 top_level = true
@@ -96,10 +97,10 @@ top_level = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -113.0
-offset_top = 252.0
-offset_right = 117.0
-offset_bottom = 310.0
+offset_left = -115.0
+offset_top = 153.0
+offset_right = 115.0
+offset_bottom = 211.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.8115774, 3.3450872e-06, 5.7756904e-07, 1)
@@ -110,33 +111,32 @@ theme_override_font_sizes/font_size = 45
 text = "score"
 horizontal_alignment = 1
 
-[node name="BackToHome" type="Button" parent="CanvasLayer" unique_id=2139689547]
-visible = false
+[node name="ButtonShowLeaderboard" type="Button" parent="CanvasLayer" unique_id=2139689547]
 top_level = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.0
-offset_top = -12.0
-offset_right = -1.0
-offset_bottom = 19.0
+offset_left = -120.0
+offset_top = 219.0
+offset_right = 11.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("9_85g3d")
-text = "Main Menu"
+text = "Show Leaderboard"
 
 [node name="SumScore" type="Label" parent="CanvasLayer" unique_id=1739496003]
 top_level = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -114.0
-offset_top = 324.0
-offset_right = 116.0
-offset_bottom = 382.0
+offset_left = -117.0
+offset_top = 218.0
+offset_right = 113.0
+offset_bottom = 318.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.6427579, 0.33861625, 3.85046e-07, 1)
@@ -147,8 +147,77 @@ theme_override_font_sizes/font_size = 80
 text = "125"
 horizontal_alignment = 1
 
+[node name="PlayerInpurName" type="LineEdit" parent="CanvasLayer" unique_id=641794265]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -15.0
+offset_right = -125.02008
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.6982594, 1.9985436)
+theme_override_fonts/font = ExtResource("9_85g3d")
+placeholder_text = "Input Name.."
+alignment = 1
+
+[node name="TopPlayerLeaderboard" type="RichTextLabel" parent="CanvasLayer" unique_id=236021049]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -168.0
+offset_right = 270.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.7882353, 0.74509805, 0.38039216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/line_separation = 2
+theme_override_constants/shadow_outline_size = 9
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "===============Leaderboard====================
+1. 	RRR		-	19950
+2. 	RDJ		-	19940
+3. 	VVD		-	19800
+4. 	GOK		-	19000
+5. 	VIC		-	18000
+6. 	CTR		-	17000
+7. 	GIO		-	16000
+8. 	MEY		-	15000
+9. 	FRZ		-	14000
+10.	JWR		-	13000"
+scroll_active = false
+
+[node name="SubmitScore" type="Button" parent="CanvasLayer" unique_id=518636794]
+top_level = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 70.0
+offset_right = 6.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_85g3d")
+text = "Submit"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1798683304]
 stream = ExtResource("10_choun")
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/BackToHome" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonShowLeaderboard" to="." method="_on_show_leaderboard"]
+[connection signal="pressed" from="CanvasLayer/SubmitScore" to="." method="_on_submit_score_pressed"]
